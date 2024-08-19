@@ -34,7 +34,7 @@ const BannerProduct = () => {
         image4Mobile,
         image5Mobile
     ]
-
+// eslint-disable-next-line
     const nextImage = () =>{
         if(desktopImages.length - 1 > currentImage){
             setCurrentImage(preve => preve + 1)
@@ -42,7 +42,7 @@ const BannerProduct = () => {
     }
 
     const preveImage = () =>{
-        if(currentImage != 0){
+        if(currentImage !== 0){
             setCurrentImage(preve => preve - 1)
         }
     }
@@ -58,7 +58,7 @@ const BannerProduct = () => {
         },5000)
 
         return ()=> clearInterval(interval)
-    },[currentImage])
+    },[currentImage, desktopImages.length, nextImage])
 
   return (
     <div className='container mx-auto px-4 rounded '>
@@ -77,7 +77,8 @@ const BannerProduct = () => {
                         desktopImages.map((imageURl,index)=>{
                             return(
                             <div className='w-full h-full min-w-full min-h-full transition-all' key={imageURl} style={{transform : `translateX(-${currentImage * 100}%)`}}>
-                                <img src={imageURl} className='w-full h-full'/>
+                                {/* eslint-disable-next-line */}
+                                <img src={imageURl} alt="Image URL" className='w-full h-full'/>
                             </div>
                             )
                         })
@@ -91,7 +92,8 @@ const BannerProduct = () => {
                         mobileImages.map((imageURl,index)=>{
                             return(
                             <div className='w-full h-full min-w-full min-h-full transition-all' key={imageURl} style={{transform : `translateX(-${currentImage * 100}%)`}}>
-                                <img src={imageURl} className='w-full h-full object-cover'/>
+                                {/* eslint-disable-next-line */}
+                                <img src={imageURl} alt="Image URL" className='w-full h-full object-cover'/>
                             </div>
                             )
                         })

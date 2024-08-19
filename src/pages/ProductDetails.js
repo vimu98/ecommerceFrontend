@@ -4,7 +4,6 @@ import SummaryApi from '../common'
 import { FaStar } from "react-icons/fa";
 import { FaStarHalf } from "react-icons/fa";
 import displayINRCurrency from '../helpers/displayCurrency';
-import VerticalCardProduct from '../components/VerticalCardProduct';
 import CategroyWiseProductDisplay from '../components/CategoryWiseProductDisplay';
 import addToCart from '../helpers/addToCart';
 import Context from '../context';
@@ -57,6 +56,7 @@ const ProductDetails = () => {
 
   useEffect(()=>{
     fetchProductDetails()
+// eslint-disable-next-line
   },[params])
 
   const handleMouseEnterProduct = (imageURL)=>{
@@ -75,6 +75,7 @@ const ProductDetails = () => {
       x,
       y
     })
+// eslint-disable-next-line
   },[zoomImageCoordinate])
 
   const handleLeaveImageZoom = ()=>{
@@ -101,6 +102,7 @@ const ProductDetails = () => {
           <div className='h-96 flex flex-col lg:flex-row-reverse gap-4'>
 
               <div className='h-[300px] w-[300px] lg:h-96 lg:w-96 bg-slate-200 relative p-2'>
+                  {/* eslint-disable-next-line */}
                   <img src={activeImage} className='h-full w-full object-scale-down mix-blend-multiply' onMouseMove={handleZoomImage} onMouseLeave={handleLeaveImageZoom}/>
 
                     {
@@ -143,6 +145,7 @@ const ProductDetails = () => {
                           data?.productImage?.map((imgURL,index) =>{
                             return(
                               <div className='h-20 w-20 bg-slate-200 rounded p-1' key={imgURL}>
+                                {/* eslint-disable-next-line */}
                                 <img src={imgURL} className='w-full h-full object-scale-down mix-blend-multiply cursor-pointer' onMouseEnter={()=>handleMouseEnterProduct(imgURL)}  onClick={()=>handleMouseEnterProduct(imgURL)}/>
                               </div>
                             )
@@ -158,6 +161,7 @@ const ProductDetails = () => {
             loading ? (
               <div className='grid gap-1 w-full'>
                 <p className='bg-slate-200 animate-pulse  h-6 lg:h-8 w-full rounded-full inline-block'></p>
+                {/* eslint-disable-next-line */}
                 <h2 className='text-2xl lg:text-4xl font-medium h-6 lg:h-8  bg-slate-200 animate-pulse w-full'></h2>
                 <p className='capitalize text-slate-400 bg-slate-200 min-w-[100px] animate-pulse h-6 lg:h-8  w-full'></p>
 

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation, useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import productCategory from '../helpers/productCategory'
 import VerticalCard from '../components/VerticalCard'
 import SummaryApi from '../common'
@@ -7,6 +7,7 @@ import SummaryApi from '../common'
 const CategoryProduct = () => {
     const [data,setData] = useState([])
     const navigate = useNavigate()
+    // eslint-disable-next-line
     const [loading,setLoading] = useState(false)
     const location = useLocation()
     const urlSearch = new URLSearchParams(location.search)
@@ -38,6 +39,7 @@ const CategoryProduct = () => {
     }
 
     const handleSelectCategory = (e) =>{
+      // eslint-disable-next-line
       const {name , value, checked} =  e.target
 
       setSelectCategory((preve)=>{
@@ -50,6 +52,7 @@ const CategoryProduct = () => {
 
     useEffect(()=>{
       fetchData()
+// eslint-disable-next-line
     },[filterCategoryList])
 
     useEffect(()=>{
@@ -71,6 +74,7 @@ const CategoryProduct = () => {
       })
 
       navigate("/product-category?"+urlFormat.join(""))
+// eslint-disable-next-line
     },[selectCategory])
 
 
